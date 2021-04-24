@@ -9,8 +9,9 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
         <StackPanel>
-            <TextBlock Text="Страница 2" Style="{ThemeResource HeaderTextBlockStyle}" />
+            <TextBlock Text="Выбор валют" TextWrapping="Wrap" HorizontalAlignment="Center"/>
             <Button Content="Назад" Click="Main_Click" />
         </StackPanel>
     </Grid>

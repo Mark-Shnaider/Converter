@@ -9,8 +9,8 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel>
-            <TextBlock Text="Страница 1" Style="{ThemeResource HeaderTextBlockStyle}" />
-            <Button Content="Вперед" Click="Choice_Click" />
+            <TextBlock Text="Конвертер" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+            <Button Content="Вперед" Click="Choice_Click" HorizontalAlignment="Right"/>
         </StackPanel>
     </Grid>
 </Page>

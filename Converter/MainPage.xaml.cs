@@ -12,7 +12,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-
+using Converter.Models;
+using Converter.ViewModel;
 
 namespace Converter
 {
@@ -22,11 +23,14 @@ namespace Converter
         public MainPage()
         {
             this.InitializeComponent();
+
+            DataContext = new MainViewModel();
         }
 
         private void Choice_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(Choice));
         }
+
     }
 }
