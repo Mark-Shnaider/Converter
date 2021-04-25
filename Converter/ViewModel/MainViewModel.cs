@@ -1,30 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Converter.Models;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Windows.Input;
+using System.Diagnostics;
 
 namespace Converter.ViewModel
 {
     class MainViewModel : INotifyPropertyChanged
     {
         public Amount Amount1 { get; set; }
-        public Amount Amount2 { get; set; } = new Amount();
-
+        public Amount Amount2 { get; set; }
         public int Mode { get; set; } = 0;
         public ObservableCollection<Valute> Valutes { get; set; }
-
         public ICommand SelectCommand { get; set; }
-
-
         public MainViewModel()
         {
+
             SelectCommand = new RelayCommand(() =>
             {
                 if (Amount1.valute != null && Amount2.valute != null)
@@ -35,9 +29,17 @@ namespace Converter.ViewModel
                         Amount2.Convert(Amount1);
                 }
             });
-            
-            //Сделано для того, чтобы сразу были данные на странице
-            Valutes = Parser.TakeData();
+
+            try
+            {
+                Valutes = Parser.TakeData();
+            }
+            catch(Exception e)
+            { 
+                Debug.WriteLine("Problem with parsing:");
+                Debug.WriteLine($"{e.Message}");
+            }
+
             Valutes.Add(new Valute
             {
                 ID = "Template",
@@ -48,8 +50,9 @@ namespace Converter.ViewModel
                 Value = 1,
                 Previous = 1
             });
-            Amount1 =  new Amount { valute = Valutes[34], Capacity = 1} ;
-            Amount2 =  new Amount { valute = Valutes[10], Capacity = 5} ;
+            //Сделано для того, чтобы сразу были данные на странице
+            Amount1 =  new Amount { valute = Valutes[0], Capacity = 1} ;
+            Amount2 =  new Amount { valute = Valutes[0], Capacity = 1} ;
             Amount1.Convert(Amount2);
         }
         public Valute MySelectedItem

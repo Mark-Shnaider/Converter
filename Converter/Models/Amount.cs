@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace Converter.Models
@@ -24,7 +19,7 @@ namespace Converter.Models
 
         public void Convert(Amount amount2)
         {
-            double coef = amount2.valute.Value / valute.Value;
+            double coef = amount2.valute.Value / amount2.valute.Nominal / valute.Value;
             Capacity = coef * amount2.capacity;
         }
 

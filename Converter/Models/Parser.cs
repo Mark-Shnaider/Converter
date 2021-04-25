@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Net.Http;
 using System.Collections.ObjectModel;
-using System.Collections.Specialized;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Net;
@@ -15,7 +10,6 @@ namespace Converter.Models
     class Parser
     {
         List<Valute> Valutes { get; set; }
-
         public static ObservableCollection<Valute> TakeData()
         {
             using (var webClient = new WebClient())
