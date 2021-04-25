@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Converter.ViewModel;
 
 // Документацию по шаблону элемента "Пустая страница" см. по адресу https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -25,11 +26,21 @@ namespace Converter
         public Choice()
         {
             this.InitializeComponent();
+            DataContext = new MainViewModel();
         }
 
         private void Main_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(MainPage));
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (e.Parameter != null)
+            {
+                //var pi = (DataContext)e.Parameter;
+                
+            }
         }
     }
 }

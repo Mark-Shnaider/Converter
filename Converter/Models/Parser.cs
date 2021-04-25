@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Net;
 
 namespace Converter.Models
 {
@@ -15,13 +16,13 @@ namespace Converter.Models
     {
         List<Valute> Valutes { get; set; }
 
-        public static async Task<ObservableCollection<Valute>> TakeData()
+        public static ObservableCollection<Valute> TakeData()
         {
-            using (var httpClient = new HttpClient())
+            using (var webClient = new WebClient())
             {
                 ObservableCollection<Valute> Valutes = new ObservableCollection<Valute>();
 
-                var json = await httpClient.GetStringAsync(@"https://www.cbr-xml-daily.ru/daily_json.js");
+                var json = webClient.DownloadString(@"https://www.cbr-xml-daily.ru/daily_json.js");
 
                 JObject parser = JObject.Parse(json);
 

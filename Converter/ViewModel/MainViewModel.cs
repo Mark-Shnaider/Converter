@@ -13,8 +13,8 @@ namespace Converter.ViewModel
 {
     class MainViewModel : INotifyPropertyChanged
     {
-        public Valute Valute1;
-        public Valute Valute2;
+        public Valute Valute1 { get; set; }
+        public Valute Valute2 { get; set; }
 
         public ObservableCollection<Valute> Valutes {get;set;}
 
@@ -22,7 +22,10 @@ namespace Converter.ViewModel
 
         public MainViewModel()
         {
-            var Valutes = Parser.TakeData();
+            Valutes = Parser.TakeData();
+
+            Valute1 = new Valute { ID = "123", Name = "Деньга1", CharCode = "RUB" };
+            Valute2 = new Valute { ID = "321", Name = "Деньга2", CharCode = "USD" };
         }
         private void OnPropertyChanged([CallerMemberName]string property = "")
         {

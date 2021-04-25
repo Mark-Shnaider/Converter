@@ -29,7 +29,7 @@ namespace Converter
 
         private void Choice_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(Choice));
+            Frame.Navigate(typeof(Choice), DataContext);
         }
 
     }

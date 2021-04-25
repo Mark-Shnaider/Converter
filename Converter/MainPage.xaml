@@ -8,9 +8,19 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel>
-            <TextBlock Text="Конвертер" TextWrapping="Wrap" HorizontalAlignment="Center"/>
-            <Button Content="Вперед" Click="Choice_Click" HorizontalAlignment="Right"/>
-        </StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <TextBlock  Text="Конвертер валют" FontSize="35" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="1"/>
+        <Button Content="Изменить валюту" Click="Choice_Click" HorizontalAlignment="Center"  Grid.Row="2" Grid.Column="0"/>
+        <TextBlock Text="{Binding Valute1.CharCode}" > </TextBlock>
+        <Button  Content="Изменить валюту" Click="Choice_Click" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="2"/>
     </Grid>
 </Page>
