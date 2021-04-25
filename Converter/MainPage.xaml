@@ -12,6 +12,7 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -19,8 +20,14 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <TextBlock  Text="Конвертер валют" FontSize="35" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="1"/>
-        <Button Content="Изменить валюту" Click="Choice_Click" HorizontalAlignment="Center"  Grid.Row="2" Grid.Column="0"/>
-        <TextBlock Text="{Binding Valute1.CharCode}" > </TextBlock>
-        <Button  Content="Изменить валюту" Click="Choice_Click" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="2"/>
+
+        
+        <TextBlock Text="{Binding Amount1.Capacity}"  HorizontalAlignment="Center"  Grid.Row="1" Grid.Column="0"></TextBlock>
+        <TextBlock Text="{Binding Amount1.valute.CharCode}"  HorizontalAlignment="Center"  Grid.Row="2" Grid.Column="0"></TextBlock>
+        <Button Content="Изменить валюту" Click="Choice_Click" HorizontalAlignment="Center"  Grid.Row="3" Grid.Column="0"/>
+
+        <TextBlock Text="{Binding Amount2.Capacity}"  HorizontalAlignment="Center"  Grid.Row="1" Grid.Column="2"></TextBlock>
+        <TextBlock Text="{Binding Amount2.valute.CharCode}"  HorizontalAlignment="Center"  Grid.Row="2" Grid.Column="2"></TextBlock>
+        <Button  Content="Изменить валюту" Click="Choice_Click" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="2"/>
     </Grid>
 </Page>
