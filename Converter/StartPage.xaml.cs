@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -13,7 +14,6 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Converter.ViewModel;
-
 // Документацию по шаблону элемента "Пустая страница" см. по адресу https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace Converter
@@ -21,26 +21,20 @@ namespace Converter
     /// <summary>
     /// Пустая страница, которую можно использовать саму по себе или для перехода внутри фрейма.
     /// </summary>
-    public sealed partial class Choice : Page
+    public sealed partial class StartPage : Page
     {
-        public Choice()
+        public StartPage()
         {
             this.InitializeComponent();
+           
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
             DataContext = new MainViewModel();
-        }
-
-        private void Main_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(MainPage));
-        }
-
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            if (e.Parameter != null)
-            {
-                //var pi = (DataContext)e.Parameter;
-                
-            }
+            Thread.Sleep(1000);
+            Frame.Navigate(typeof(MainPage), DataContext);
         }
     }
 }
+
