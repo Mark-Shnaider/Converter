@@ -11,10 +11,10 @@ namespace Converter.ViewModel
 {
     class MainViewModel : INotifyPropertyChanged
     {
+        public ObservableCollection<Valute> Valutes { get; set; }
         public Amount Amount1 { get; set; }
         public Amount Amount2 { get; set; }
         public int Mode { get; set; } = 0;
-        public ObservableCollection<Valute> Valutes { get; set; }
         public ICommand SelectCommand { get; set; }
         public MainViewModel()
         {
@@ -55,6 +55,7 @@ namespace Converter.ViewModel
             Amount2 =  new Amount { valute = Valutes[0], Capacity = 1} ;
             Amount1.Convert(Amount2);
         }
+
         public Valute MySelectedItem
         {
             get

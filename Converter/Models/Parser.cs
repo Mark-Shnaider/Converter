@@ -9,7 +9,6 @@ namespace Converter.Models
 {
     class Parser
     {
-        List<Valute> Valutes { get; set; }
         public static ObservableCollection<Valute> TakeData()
         {
             using (var webClient = new WebClient())

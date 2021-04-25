@@ -2,6 +2,8 @@
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using Converter.ViewModel;
+using System.Linq;
+using System.Globalization;
 
 namespace Converter
 {
@@ -29,6 +31,21 @@ namespace Converter
             {
                 DataContext = e.Parameter;
             }
+        }
+
+        private void TextBox_BeforeTextChanging(TextBox sender, TextBoxBeforeTextChangingEventArgs args)
+        {
+            var textBox = (TextBox)sender;
+            if(textBox.Name == "Box1")
+                (DataContext as MainViewModel).Mode = 0;
+            else
+                (DataContext as MainViewModel).Mode = 1;
+            args.Cancel = args.NewText.Any(c => !char.IsDigit(c) && c != '.' && c != DecimalPoint);
+        }
+
+        public static char DecimalPoint
+        {
+            get { return System.Convert.ToChar(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator); }
         }
     }
 }
