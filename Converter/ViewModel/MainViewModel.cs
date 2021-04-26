@@ -25,9 +25,15 @@ namespace Converter.ViewModel
                 if (Amount1.valute != null && Amount2.valute != null)
                 {
                     if (Mode == 0)
+                    {
                         Amount1.Convert(Amount2);
+                        Mode = 1;
+                    }
                     else
+                    {
                         Amount2.Convert(Amount1);
+                        Mode = 0;
+                    }
                 }
             });
 
