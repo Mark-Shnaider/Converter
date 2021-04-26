@@ -16,6 +16,7 @@ namespace Converter.ViewModel
         public Amount Amount2 { get; set; }
         public int Mode { get; set; } = 0;
         public ICommand SelectCommand { get; set; }
+        public ICommand ConvertCommand { get; set; }
         public MainViewModel()
         {
 
@@ -28,6 +29,14 @@ namespace Converter.ViewModel
                     else
                         Amount2.Convert(Amount1);
                 }
+            });
+
+            ConvertCommand = new RelayCommand(() =>
+            {
+                if (Mode == 0)
+                    Amount2.Convert(Amount1);
+                else
+                    Amount1.Convert(Amount2);
             });
 
             try
@@ -55,6 +64,7 @@ namespace Converter.ViewModel
             Amount2 =  new Amount { valute = Valutes[0], Capacity = 1} ;
             Amount1.Convert(Amount2);
         }
+        
 
         public Valute MySelectedItem
         {

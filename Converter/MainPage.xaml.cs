@@ -4,6 +4,7 @@ using Windows.UI.Xaml.Navigation;
 using Converter.ViewModel;
 using System.Linq;
 using System.Globalization;
+using System;
 
 namespace Converter
 {
@@ -46,6 +47,22 @@ namespace Converter
         public static char DecimalPoint
         {
             get { return System.Convert.ToChar(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator); }
+        }
+
+        private void Box1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            //var temp = (DataContext as MainViewModel).Amount1;
+            //if((DataContext as MainViewModel).Mode == 0)
+            //    temp.Capacity = Convert.ToDouble(Box1.Text);
+            //(DataContext as MainViewModel).Amount2.Convert(temp);
+        }
+
+        private void Box2_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            //var temp = (DataContext as MainViewModel).Amount2;
+            //if ((DataContext as MainViewModel).Mode == 1)
+            //    temp.Capacity = Convert.ToDouble(Box2.Text);
+            //(DataContext as MainViewModel).Amount1.Convert(temp);
         }
     }
 }
