@@ -21,15 +21,16 @@
         </Grid.ColumnDefinitions>
         <TextBlock Text="Конвертер валют" FontSize="35" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="1"/>
 
-        <TextBox x:Name="Box1" Text="{Binding Amount1.Capacity, Mode=TwoWay}" BeforeTextChanging="TextBox_BeforeTextChanging" HorizontalAlignment="Center"  Grid.Row="1"  VerticalAlignment="Top" Height="35" Width="200"/>
+        <TextBox x:Name="Box1" Text="{Binding Amount1.Capacity, Mode=TwoWay}" BeforeTextChanging="TextBox_BeforeTextChanging" HorizontalAlignment="Center"  Grid.Row="1"  VerticalAlignment="Center" Height="35" Width="200"/>
         <TextBlock Text="{Binding Amount1.valute.CharCode}"  HorizontalAlignment="Center"  Grid.Row="2" Grid.Column="0"></TextBlock>
         <Button x:Name="Button1" Content="Изменить валюту" Click="Choice_Click" HorizontalAlignment="Center"  Grid.Row="3" Grid.Column="0"/>
 
-        <TextBox x:Name="Box2"  Text="{Binding Amount2.Capacity, Mode=TwoWay}" BeforeTextChanging="TextBox_BeforeTextChanging" HorizontalAlignment="Center"  Grid.Row="1" Grid.Column="2" VerticalAlignment="Top" Height="35" Width="200"></TextBox>
+        <TextBox x:Name="Box2"  Text="{Binding Amount2.Capacity, Mode=TwoWay}" BeforeTextChanging="TextBox_BeforeTextChanging" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="2"  Height="35" Width="200"></TextBox>
         <TextBlock Text="{Binding Amount2.valute.CharCode}"  HorizontalAlignment="Center"  Grid.Row="2" Grid.Column="2"></TextBlock>
         <Button x:Name="Button2"  Content="Изменить валюту" Click="Choice_Click" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="2"/>
 
         <Button  Content="Конвертировать" Command="{Binding ConvertCommand}" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center"/>
+        <Image Source="Assets/Arrow.png" Grid.Column="1" HorizontalAlignment="Center" Height="100" Margin="0,35,0,0" Grid.Row="1" VerticalAlignment="Top" Width="127"/>
 
     </Grid>
 </Page>

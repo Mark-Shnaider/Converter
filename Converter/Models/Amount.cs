@@ -19,8 +19,10 @@ namespace Converter.Models
 
         public void Convert(Amount amount2)
         {
-            double coef = amount2.valute.Value / amount2.valute.Nominal / valute.Value;
-            Capacity = coef * amount2.capacity;
+            double coef1 = valute.Value / valute.Nominal;
+            double coef2 = amount2.valute.Value / amount2.valute.Nominal;
+            double value = coef2 / coef1;
+            Capacity = value * amount2.capacity;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
